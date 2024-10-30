@@ -1,0 +1,21 @@
+0. TypeScript Setup
+ - Setting up a TypeScript Project
+ - Configuring tsconfig.json    // TypeScript settings: To create new config file -> tsc --init (terminal)
+ - Compiling TypeScript         // tsc --watch [ in terminal ] (like nodemon)
+
+
+1. Basic TypeScript
+ - Primitive types (number string, boolean)
+ - Arrays
+ - Tuples
+ - Enums
+ - Any, Unknown, Void, Null, Undefined, Never
+
+ // [] {} () => Reference Type
+
+ // var a = 12;  -> Primitive
+ // var a = true; -> Primitive
+ // var a = 12;   -> Primitive
+
+ // var a = []  -> Reference
+ // var a = {}  -> Reference
