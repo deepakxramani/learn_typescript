@@ -19,3 +19,32 @@
 
  // var a = []  -> Reference
  // var a = {}  -> Reference
+
+
+ 
+2. Type Inference
+  - Understanding the type Inference
+  - Type annotations
+
+
+3. Interfaces and Types Aliases
+ - Defining Interfaces
+ - Using Interfaces
+ - Extending Interfaces
+ - Type Aliases
+ - Intersection types
+
+
+4. Classes & Objects
+ - Class definition
+ - Constructors
+ - Access modifiers (public, private, protected)
+ - Readonly properties
+ - Optional properties
+ - Parameter properties
+ - Getters and Setters
+ - Static members
+ - Abstract classes and methods
+
+
+ 

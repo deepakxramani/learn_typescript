@@ -139,17 +139,17 @@
 
 
 //* undefined:
-let a: undefined;   // when you don't assign a value to a variable then it's undefined.
+// let a: undefined;   // when you don't assign a value to a variable then it's undefined.
 
 
 //* never: --> when function never returns something or after execution of the function 
 //* it'll not move to the next line of execution when set to never
 
-function abcd(): never {
-    while(true) {}      // infinite loop
-}
-abcd();
-console.log()   // you can see this part of code got faded when mention :never after the function name.
+//function abcd(): never {
+//   while(true) {}      // infinite loop
+//}
+//abcd();
+//console.log()   // you can see this part of code got faded when mention :never after the function name.
 
 
 
