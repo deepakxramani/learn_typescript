@@ -9,6 +9,21 @@
 //  - Getters and Setters
 //  - Static members
 //  - Abstract classes and methods
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 //* 1. Class definition
 // class Device {
 //     name = "lg";
@@ -121,10 +136,174 @@
 // }
 // let b1 = new BottleMaker("milton")
 // Shorthand
-var BottleMaker = /** @class */ (function () {
-    function BottleMaker(name) {
-        this.name = name;
+// class BottleMaker {
+//     constructor(public name: string) { }                      
+// }
+// let b1 = new BottleMaker("milton")
+//* 4. Access modifiers (public, private, protected)
+// class BottleMaker {
+//     constructor(public name: string) {
+//         this.name = name;
+//     }
+//     changing() {
+//         this.name = "harsh";
+//     }
+// }
+// let b1 = new BottleMaker("Milton")
+// b1.changing()
+// class BottleMaker {
+//     // public halua: string = "halua";
+//     private halua: string = "halua";               // cannot be used outside this class
+//     constructor(public name: string) { } 
+//    // constructor(private name: string) { }       // will console the result but TypeScript will
+// }                                               // give us the error on private as it only accessible in the same class.
+// class MetalBottleMaker extends BottleMaker {
+//     constructor(name: string) {
+//         super(name)                             // this super will the name value to base class BottleMaker
+//     }
+//     getValue(){
+//         console.log(this.name);
+//         //console.log(this.halua);            // cannot be accessible if declared private base class.
+//     }
+// }
+// let b1 = new MetalBottleMaker("Milton");
+// b1.getValue()
+//* Protected
+// class BottleMaker {
+//     // public name = "Milton";
+//     // private name = "Milton";     // private -> can be used in this class only
+//     protected name = "Milton";      // protected -> can be used in this class as well as if any other class extends this class then its also accessible there. 
+// }
+// class MetalBottleMaker extends BottleMaker {
+//     public material = "Metal";
+//     changeName(){
+//         this.name = "some other name";      // will change the name but TypeScript will give you warning
+//                                             // that property name is private and only accessible within class BottleMaker
+//         this.name = "some other name";      // you can change the name in case of protected.
+//     }                                      
+// }
+// let b1 = new MetalBottleMaker()
+// b1.changeName()
+// b1.name = "some othet name"                 // Warning -> Property 'name' is protected and only accessible within class 'BottleMaker' and its subclasses.
+//* 5. Readonly properties And Optional properties
+//& Readonly
+// class User {
+//     constructor(public readonly name: string) {
+//     }
+//     changeName() {
+//         this.name = "hellyow";      // if 'readonly' used then you cannot change the property 
+//     }                               // though it will change the value but TypeScript will warning.
+// }
+// let u1 = new User("Harsh")
+// u1.changeName()
+//& Optional
+// class User {
+//     constructor(public name: string, public age: number, public gender?: string) { }
+// }
+// let u1 = new User("Harsh", 25, "Male")
+// let u2 = new User("LaqBataq", 18)               // will not throw an error if gender is not provided
+//                                                 // as it was declared optional... "gender: undefined"
+//* 6. Parameter properties
+// Noraml way:
+// class User {
+//     public name;
+//     public age;
+//     constructor(name: string, age: number) {
+//         this.name = name;
+//         this.age = age;
+//     }
+// }
+// Parameter properties way:    initialize and declare at the same time.
+// class User {
+//     constructor(public name: string, public age: number) { }
+// }
+//* 7. Getters and Setters
+// Normal Way:
+// class User {
+//     constructor(public name: string, public age: number) { }
+//     getName() {
+//         return this.name;
+//     }
+//     setName(value: string) {
+//         this.name = value
+//     }
+// }
+// let u1 = new User("harsh", 25);
+// console.log(u1.getName());
+// u1.setName("Harshita")
+// console.log(u1.getName());
+// TypeScript way:  'get' and 'set' keyword
+// class User {
+//     constructor(public _name: string, public _age: number) { }
+//     get name(){
+//         return this._name
+//     }
+//     set name(value: string){
+//         this._name = value;
+//     }
+//     get age() {
+//         return this._age
+//     }
+// }
+// let u1 = new User("Harsh", 25);
+// console.log(u1.name);               // Harsh
+// console.log(u1.age)                 // 25
+// // setting value
+// u1.name = "harshita";
+// console.log(u1.name);              // harshita
+//* 8. Static Members
+var Hero = /** @class */ (function () {
+    function Hero() {
     }
-    return BottleMaker;
+    // static members will not be included in your instances.
+    Hero.getRandomNumber = function () {
+        return Math.random();
+    };
+    Hero.version = 1.0; // you can access them without creating an object instance, without 'static' keyword you'll get undefined...
+    return Hero;
 }());
-var b1 = new BottleMaker("milton");
+//* 9. Abstract Classes and Methods     -> Abstract - Chhupa hua arth
+// This Payment class should not be instantiated with new keyword 
+//  Q.1 kya instantiate kar skte hain? Ans - yes
+//  Q2. Instantiate karna chaiye? Ans - nahi
+//  Q.3 Kyun? Ans - Because this class is esssentials not a complete class, holds base data only.
+// Ex.1
+var Payment = /** @class */ (function () {
+    function Payment(amount, account) {
+        this.amount = amount;
+        this.account = account;
+    }
+    Payment.prototype.isPaymentValid = function () {
+        return this.amount > 0;
+    };
+    return Payment;
+}());
+var Paytm = /** @class */ (function (_super) {
+    __extends(Paytm, _super);
+    function Paytm() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return Paytm;
+}(Payment));
+// Ex.2     // Gas is essential if you want to cook anything
+var CookingEssentials = /** @class */ (function () {
+    function CookingEssentials(gas, gasKaName) {
+        this.gas = gas;
+        this.gasKaName = gasKaName;
+    }
+    return CookingEssentials;
+}());
+var Sabji = /** @class */ (function (_super) {
+    __extends(Sabji, _super);
+    function Sabji() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return Sabji;
+}(CookingEssentials));
+var Cake = /** @class */ (function (_super) {
+    __extends(Cake, _super);
+    function Cake() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return Cake;
+}(CookingEssentials));
