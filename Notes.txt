@@ -47,4 +47,37 @@
  - Abstract classes and methods
 
 
+5. Functions
+ - Function types
+ - Optional and Default parameters
+ - Rest parameters
+ - Overloads
+
+
+6.  Generics
+ - Generic Functions
+ - Generic Interfaces
+ - Generic classes
+
+
+7. Modules
+ - Exporting and Importing Modules
+ - Default exports
+
+
+8. Type Assertions
+ - Type casting
+ - Non-null assertion operator
+
+
+9. Type Guards and TypeScript Utility Types
+ -  Using typeof and instanceof
+ -  Partial,  Required, Readonly 
+
+
+
+
+
+
+
  
