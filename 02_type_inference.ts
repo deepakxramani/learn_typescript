@@ -9,7 +9,7 @@
 //let c: number = 12;  // type annoration
 //let d: number | boolean | string;   // type annotation
 
-// now allowed 
+// not allowed 
 // d = 12;     
 // d = true;
 // d = "harsh";
